@@ -14,7 +14,7 @@ function absname {
 
 BUILD_OUT=$1
 SRC=$(absname "$(dirname "${BASH_SOURCE[0]}")")
-BIN=$SRC/bin
+BIN=$SRC/../../bin
 
 if [ ! -f "$BIN/pkg/build.properties" ]; then
   echo Unable to find pkg/build.properties in $BIN
@@ -38,8 +38,8 @@ cp "$SRC/Info.plist" AGI.app/Contents/
 
 mkdir -p AGI.iconset AGI.app/Contents/Resources
 for i in 512 256 128 64 32 16; do
-  cp "$SRC/logo/logo_${i}.png" AGI.iconset/icon_${i}x${i}.png
-  cp "$SRC/logo/logo_$((i*2)).png" AGI.iconset/icon_${i}x${i}\@2x.png
+  cp "$SRC/../../logo/logo_${i}.png" AGI.iconset/icon_${i}x${i}.png
+  cp "$SRC/../../logo/logo_$((i*2)).png" AGI.iconset/icon_${i}x${i}\@2x.png
 done
 iconutil -c icns -o AGI.app/Contents/Resources/AGI.icns AGI.iconset
 
