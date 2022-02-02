@@ -3,10 +3,7 @@
 # Fail on any error.
 set -e
 
-if [ $# -ne 1 -o ! -d "$1" ]; then
-  echo Expected the build folder as an argument.
-  exit 1
-fi
+mkdir -p $1
 
 function absname {
   echo $(cd "$1" && pwd)
