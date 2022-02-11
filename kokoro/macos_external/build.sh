@@ -39,7 +39,9 @@ function run_bazel {
 }
 
 function bazel_shutdown {
-  $BUILD_ROOT/bazel/bin/bazel shutdown\
+  $BUILD_ROOT/bazel/bin/bazel \
+      --output_base="${TMP}/bazel_out" \
+      shutdown \
       $@
 }
 
