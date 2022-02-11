@@ -51,5 +51,7 @@ bazel_shutdown
 python3 -m pip install --upgrade --user dmgbuild pyobjc-framework-Quartz
 ~/.local/bin/dmgbuild ../../logo agi-1-macos.dmg
 
+ps
+
 echo "Done!"
 
