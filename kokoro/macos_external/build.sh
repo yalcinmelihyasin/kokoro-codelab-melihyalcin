@@ -38,12 +38,12 @@ function run_bazel {
       $@
 }
 
-function bazel_shutdown {
-  $BUILD_ROOT/bazel/bin/bazel \
-      --output_base="${TMP}/bazel_out" \
-      shutdown \
-      $@
-}
+# function bazel_shutdown {
+#   $BUILD_ROOT/bazel/bin/bazel \
+#       --output_base="${TMP}/bazel_out" \
+#       shutdown \
+#       $@
+# }
 
 run_bazel build //:hello
 
@@ -51,7 +51,8 @@ run_bazel build //:hello
 python3 -m pip install --upgrade --user dmgbuild pyobjc-framework-Quartz
 ~/.local/bin/dmgbuild ../../logo agi-1-macos.dmg
 
-bazel_shutdown
+# bazel_shutdown
+bazelisk shutdown
 
 echo "Done!"
 
