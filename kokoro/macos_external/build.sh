@@ -38,7 +38,14 @@ function run_bazel {
       $@
 }
 
+function bazel_shutdown {
+  $BUILD_ROOT/bazel/bin/bazel shutdown\
+      $@
+}
+
 run_bazel build //:hello
+
+bazel_shutdown
 
 # Make a dmg file.
 python3 -m pip install --upgrade --user dmgbuild pyobjc-framework-Quartz
