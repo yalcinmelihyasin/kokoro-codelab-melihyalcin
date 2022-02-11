@@ -47,14 +47,13 @@ function bazel_shutdown {
 
 run_bazel build //:hello
 
-bazel_shutdown
-bazelisk shutdown
-
 # Make a dmg file.
 python3 -m pip install --upgrade --user dmgbuild pyobjc-framework-Quartz
 ~/.local/bin/dmgbuild ../../logo agi-1-macos.dmg
 
-ps
+bazel_shutdown
+bazelisk shutdown
 
 echo "Done!"
 
+exit 0
